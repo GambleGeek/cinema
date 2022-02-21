@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.Scanner;
+
 @Component
 public class Show {
     @Value("12:00")
@@ -44,4 +46,6 @@ public class Show {
         System.out.println("The information about the auditorium: ");
         auditorium.showAuditorium();
     }
+
+
 }
