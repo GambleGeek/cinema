@@ -1,17 +1,21 @@
 package org.cinema.models;
 
-import java.sql.Time;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Show {
-    private Time time;
+    @Value("12:00")
+    private String time;
     private Film film;
     private Auditorium auditorium;
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
@@ -19,6 +23,7 @@ public class Show {
         return film;
     }
 
+    @Autowired
     public void setFilm(Film film) {
         this.film = film;
     }
@@ -27,7 +32,16 @@ public class Show {
         return auditorium;
     }
 
+    @Autowired
     public void setAuditorium(Auditorium auditorium) {
         this.auditorium = auditorium;
+    }
+
+    public void showInfo(){
+        System.out.println("The information about the film: ");
+        film.showFilm();
+        System.out.println("\n===================================");
+        System.out.println("The information about the auditorium: ");
+        auditorium.showAuditorium();
     }
 }
